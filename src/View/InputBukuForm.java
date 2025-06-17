@@ -20,10 +20,9 @@ public class InputBukuForm extends javax.swing.JFrame {
      */
     public InputBukuForm() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(255, 192, 203));
+        getContentPane().setBackground(new java.awt.Color(211, 211, 211));
         setLocationRelativeTo(null);
         bukuController = new BukuController();
-        btnTambah.addActionListener(e -> tambahBuku());
     }
     
      private void tambahBuku() {
@@ -41,7 +40,6 @@ public class InputBukuForm extends javax.swing.JFrame {
         Buku buku = new Buku(judul, pengarang, penerbit, tahun, kategori);
         bukuController.tambahBuku(buku);
 
-        // Reset form
         txtJudulBuku.setText("");
         txtPengarang.setText("");
         txtPenerbit.setText("");
@@ -88,6 +86,11 @@ public class InputBukuForm extends javax.swing.JFrame {
         lblTahunTerbit.setText("Tahun Terbit");
 
         btnTambah.setText("Tambah");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
 
         txtJudulBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +99,11 @@ public class InputBukuForm extends javax.swing.JFrame {
         });
 
         jKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fiksi", "Non Fiksi", "Akademi" }));
+        jKategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jKategoriActionPerformed(evt);
+            }
+        });
 
         btnLihatDaftar.setText("Daftar Buku");
         btnLihatDaftar.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +184,7 @@ public class InputBukuForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKategori)
                     .addComponent(jKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTambah)
                     .addComponent(btnLihatDaftar)
@@ -204,6 +212,15 @@ public class InputBukuForm extends javax.swing.JFrame {
         new BerandaForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        // TODO add your handling code here:
+         tambahBuku();
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void jKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jKategoriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jKategoriActionPerformed
 
     /**
      * @param args the command line arguments

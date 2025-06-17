@@ -22,7 +22,7 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(255, 192, 203));
+        getContentPane().setBackground(new java.awt.Color(211, 211, 211));
         setLocationRelativeTo(null);
     }
 
@@ -39,8 +39,8 @@ public class LoginForm extends javax.swing.JFrame {
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
         btnlogin = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +57,7 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        btnlogin.setText("Login");
+        btnlogin.setText("Login ");
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloginActionPerformed(evt);
@@ -80,8 +80,8 @@ public class LoginForm extends javax.swing.JFrame {
                                     .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtUsername)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)))))
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                                    .addComponent(txtPassword)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(lblTitle)))
@@ -115,17 +115,18 @@ public class LoginForm extends javax.swing.JFrame {
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         // TODO add your handling code here:                                     
     String username = txtUsername.getText();
-    String password = new String(txtPassword.getPassword());
+    String password = new String(txtPassword.getText());
 
-    boolean sukses = LoginController.login(username, password);
+    LoginController controller = new LoginController();
+    boolean sukses = controller.login(username, password);
     if (sukses) {
         JOptionPane.showMessageDialog(this, "Login berhasil!");
-        dispose(); // tutup login form
-        new BerandaForm().setVisible(true); // buka form beranda
+        dispose(); 
+        new BerandaForm().setVisible(true); 
     } else {
         JOptionPane.showMessageDialog(this, "Username atau password salah!");
-        txtPassword.setText(""); // kosongkan password
-    }
+        txtPassword.setText("");
+        }
     }//GEN-LAST:event_btnloginActionPerformed
 
     /**
@@ -172,4 +173,3 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
-

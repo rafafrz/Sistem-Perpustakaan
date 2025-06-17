@@ -3,13 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/View/LoginForm.java</file>
-            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/sistemperpustakaan/SistemPerpustakaan.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/Controller/LoginController.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/Model/Peminjaman.java</file>
             <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/View/DaftarBukuForm.java</file>
-            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/Controller/BukuController.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/Controller/PeminjamanController.java</file>
             <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/View/InputBukuForm.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/Controller/BukuController.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/DAO/DAOPerpustakaan.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/View/PeminjamanForm.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/View/LoginForm.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/Model/KoneksiDB.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/View/DaftarPeminjamanForm.java</file>
             <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/Model/Buku.java</file>
             <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/View/BerandaForm.java</file>
+            <file>file:/D:/Kuliah/Semester%204/PBO/Latihan/SistemPerpustakaan/src/DAOInterface/IPerpustakaan.java</file>
         </group>
     </open-files>
 </project-private>

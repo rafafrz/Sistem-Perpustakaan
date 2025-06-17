@@ -36,11 +36,11 @@
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Component id="btnDaftarBuku" min="-2" pref="125" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="btnPeminjaman" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="jButton4" min="-2" pref="124" max="-2" attributes="0"/>
+              <Component id="btnDaftarPeminjaman" min="-2" pref="124" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -60,8 +60,8 @@
                   <Component id="btnDaftarBuku" min="-2" pref="59" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnTambahBuku" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="btnPeminjaman" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="btnDaftarPeminjaman" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="51" max="32767" attributes="0"/>
@@ -96,18 +96,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDaftarBukuActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnPeminjaman">
       <Properties>
         <Property name="text" type="java.lang.String" value="Peminjaman"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPeminjamanActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="btnDaftarPeminjaman">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Data Pinjaman"/>
+        <Property name="text" type="java.lang.String" value="Daftar Pinjaman"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDaftarPeminjamanActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>

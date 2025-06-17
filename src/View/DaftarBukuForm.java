@@ -24,7 +24,7 @@ public class DaftarBukuForm extends javax.swing.JFrame {
         this.controller = controller;
         initComponents();
         setLocationRelativeTo(null);
-        getContentPane().setBackground(new java.awt.Color(255, 192, 203));
+        getContentPane().setBackground(new java.awt.Color(211, 211, 211));
         
     tampilkanDataBuku();
     setTableCellAlignmentCenter();
@@ -46,7 +46,7 @@ public class DaftarBukuForm extends javax.swing.JFrame {
             }
 
             Object[] row = {
-                no++,
+                buku.getIdBuku(),
                 buku.getJudul(),
                 buku.getPengarang(),
                 buku.getPenerbit(),
@@ -54,10 +54,9 @@ public class DaftarBukuForm extends javax.swing.JFrame {
                 buku.getKategori()
             };
             tableModel.addRow(row);
+            }
         }
-        
        aturLebarKolom(); 
-    }
  }
     
     private void setTableCellAlignmentCenter() {
@@ -71,14 +70,15 @@ public class DaftarBukuForm extends javax.swing.JFrame {
     
     private void aturLebarKolom() {
         TabelBuku.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        TabelBuku.getColumnModel().getColumn(0).setPreferredWidth(30);  
+        TabelBuku.getColumnModel().getColumn(0).setPreferredWidth(30); 
         TabelBuku.getColumnModel().getColumn(1).setPreferredWidth(200); 
         TabelBuku.getColumnModel().getColumn(2).setPreferredWidth(150); 
         TabelBuku.getColumnModel().getColumn(3).setPreferredWidth(200); 
         TabelBuku.getColumnModel().getColumn(4).setPreferredWidth(50); 
-        TabelBuku.getColumnModel().getColumn(5).setPreferredWidth(70); 
+        TabelBuku.getColumnModel().getColumn(5).setPreferredWidth(70);
     }
-
+    
+    
     /**
      * Creates new form DaftarBukuForm
      */
@@ -99,6 +99,7 @@ public class DaftarBukuForm extends javax.swing.JFrame {
         lblJudulBuku = new javax.swing.JLabel();
         txtJudulBuku = new javax.swing.JTextField();
         btnCari = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +114,7 @@ public class DaftarBukuForm extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "No", "Judul Buku", "Pengarang", "Penerbit", "Tahun Terbit", "Kategori"
+                "ID", "Judul Buku", "Pengarang", "Penerbit", "Tahun Terbit", "Kategori"
             }
         ));
         jScrollPane1.setViewportView(TabelBuku);
@@ -140,13 +141,24 @@ public class DaftarBukuForm extends javax.swing.JFrame {
             }
         });
 
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBack)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBack))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(28, 28, 28)
@@ -176,7 +188,9 @@ public class DaftarBukuForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnDelete))
                 .addGap(12, 12, 12))
         );
 
@@ -202,6 +216,26 @@ public class DaftarBukuForm extends javax.swing.JFrame {
             tampilkanDataBuku(); 
         }
     }//GEN-LAST:event_btnCariActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+            int selectedRow = TabelBuku.getSelectedRow();
+            if (selectedRow >= 0) {
+                String judul = TabelBuku.getValueAt(selectedRow, 1).toString();
+                String pengarang = TabelBuku.getValueAt(selectedRow, 2).toString();
+                String TahunTerbit = TabelBuku.getValueAt(selectedRow, 4).toString();
+                String Penerbit = TabelBuku.getValueAt(selectedRow, 3).toString();
+                int confirm = JOptionPane.showConfirmDialog(this,
+                        "Apakah Anda yakin ingin menghapus buku \"" + judul + "\" oleh " + pengarang + "?",
+                        "Konfirmasi Hapus",
+                        JOptionPane.YES_NO_OPTION);
+
+                if (confirm == JOptionPane.YES_OPTION) {
+                    controller.HapusBuku(Penerbit); 
+                    tampilkanDataBuku(); 
+                }
+            }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +277,7 @@ public class DaftarBukuForm extends javax.swing.JFrame {
     private javax.swing.JTable TabelBuku;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblJudulBuku;
     private javax.swing.JLabel lblTitle;

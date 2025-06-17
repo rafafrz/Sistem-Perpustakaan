@@ -4,6 +4,7 @@
  */
 package View;
 import Controller.BukuController;
+import Controller.PeminjamanController;
 import javax.swing.*;
 
 /**
@@ -12,13 +13,15 @@ import javax.swing.*;
  */
 public class BerandaForm extends javax.swing.JFrame {
     private BukuController bukuController;
+    private PeminjamanController peminjamanController;
     /**
      * Creates new form BerandaForm
      */
     public BerandaForm() {
         initComponents();
         bukuController = new BukuController();
-        getContentPane().setBackground(new java.awt.Color(255, 192, 203));
+        peminjamanController = new PeminjamanController();
+        getContentPane().setBackground(new java.awt.Color(211, 211, 211));
         setLocationRelativeTo(null);
     }
 
@@ -34,8 +37,8 @@ public class BerandaForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnTambahBuku = new javax.swing.JButton();
         btnDaftarBuku = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnPeminjaman = new javax.swing.JButton();
+        btnDaftarPeminjaman = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,14 +60,19 @@ public class BerandaForm extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Peminjaman");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnPeminjaman.setText("Peminjaman");
+        btnPeminjaman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnPeminjamanActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Data Pinjaman");
+        btnDaftarPeminjaman.setText("Daftar Pinjaman");
+        btnDaftarPeminjaman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDaftarPeminjamanActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -89,9 +97,9 @@ public class BerandaForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDaftarBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)))
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDaftarPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
             .addGroup(layout.createSequentialGroup()
                 .addGap(235, 235, 235)
@@ -108,8 +116,8 @@ public class BerandaForm extends javax.swing.JFrame {
                     .addComponent(btnDaftarBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnTambahBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDaftarPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(36, 36, 36))
@@ -125,9 +133,11 @@ public class BerandaForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnTambahBukuActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnPeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeminjamanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        new PeminjamanForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnPeminjamanActionPerformed
 
     private void btnDaftarBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarBukuActionPerformed
         // TODO add your handling code here:
@@ -141,6 +151,13 @@ public class BerandaForm extends javax.swing.JFrame {
         new LoginForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDaftarPeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarPeminjamanActionPerformed
+        // TODO add your handling code here:
+        DaftarPeminjamanForm daftarpeminjaman = new DaftarPeminjamanForm(peminjamanController);
+        daftarpeminjaman.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnDaftarPeminjamanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,9 +197,9 @@ public class BerandaForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDaftarBuku;
+    private javax.swing.JButton btnDaftarPeminjaman;
+    private javax.swing.JButton btnPeminjaman;
     private javax.swing.JButton btnTambahBuku;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
